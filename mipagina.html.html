@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Suma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        button {
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #8e44ad;
+        }
+        #resultado {
+            margin-top: 25px;
+            font-size: 1.3rem;
+            color: #27ae60;
+            font-weight: bold;
+            min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sumar dos números</h1>
+
+        <label for="num1">Primer número:</label>
+        <input type="number" id="num1" placeholder="Escribe un número">
+
+        <label for="num2">Segundo número:</label>
+        <input type="number" id="num2" placeholder="Escribe un número">
+
+        <button onclick="sumar()">Calcular</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function sumar() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const resultadoDiv = document.getElementById("resultado");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultadoDiv.style.color = "#e74c3c";
+                resultadoDiv.textContent = "Por favor ingresa dos números válidos";
+                return;
+            }
+
+            const suma = num1 + num2;
+            resultadoDiv.style.color = "#27ae60";
+            resultadoDiv.textContent = `Resultado: ${suma}`;
+        }
+    </script>
+</body>
+</html>
